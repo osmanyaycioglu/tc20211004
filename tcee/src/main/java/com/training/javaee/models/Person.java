@@ -1,11 +1,30 @@
 package com.training.javaee.models;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import com.training.javaee.custom.validation.StartWith;
 
 public class Person {
 
+    @NotEmpty(message = "name boş olamaz")
+    @Size(min = 2, max = 20, message = "name 2 ile 20 arasında olmalı")
+    @StartWith(value = "is:", message = "name 'is:' ile başlamalı")
     private String  name;
+    @NotEmpty(message = "surname boş olamaz")
+    @Size(min = 3, max = 30, message = "surname 3 ile 30 arasında olmalı")
+    @StartWith("so:")
     private String  surname;
+    @NotNull
+    @Min(10)
+    @Max(300)
     private Integer weight;
+    @NotNull
+    @Min(100)
+    @Max(250)
     private Integer height;
 
     public Person() {
