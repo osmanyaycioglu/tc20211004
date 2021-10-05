@@ -5,9 +5,11 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import com.training.javaee.custom.validation.StartWith;
 
+@XmlRootElement
 public class Person {
 
     @NotEmpty(message = "name boş olamaz")
