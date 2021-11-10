@@ -5,13 +5,9 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement
-public class Person {
+public class PersonDto {
 
-    @NotEmpty(message = "username boş olamaz")
-    @Size(min = 2, max = 20, message = "username 5 ile 20 arasında olmalı")
     private String  username;
     @NotEmpty(message = "name boş olamaz")
     @Size(min = 2, max = 20, message = "name 2 ile 20 arasında olmalı")
@@ -30,67 +26,45 @@ public class Person {
     @Max(250)
     private Integer height;
 
-    public Person() {
+    public String getUsername() {
+        return this.username;
     }
 
+    public void setUsername(final String usernameParam) {
+        this.username = usernameParam;
+    }
 
     public String getName() {
         return this.name;
     }
 
-    public Person setName(final String nameParam) {
+    public void setName(final String nameParam) {
         this.name = nameParam;
-        return this;
     }
 
     public String getSurname() {
         return this.surname;
     }
 
-    public Person setSurname(final String surnameParam) {
+    public void setSurname(final String surnameParam) {
         this.surname = surnameParam;
-        return this;
     }
 
     public Integer getWeight() {
         return this.weight;
     }
 
-    public Person setWeight(final Integer weightParam) {
+    public void setWeight(final Integer weightParam) {
         this.weight = weightParam;
-        return this;
     }
 
     public Integer getHeight() {
         return this.height;
     }
 
-    public Person setHeight(final Integer heightParam) {
+    public void setHeight(final Integer heightParam) {
         this.height = heightParam;
-        return this;
     }
 
-    @Override
-    public String toString() {
-        return "Person [name="
-               + this.name
-               + ", surname="
-               + this.surname
-               + ", weight="
-               + this.weight
-               + ", height="
-               + this.height
-               + "]";
-    }
-
-
-    public String getUsername() {
-        return this.username;
-    }
-
-
-    public void setUsername(final String usernameParam) {
-        this.username = usernameParam;
-    }
 
 }

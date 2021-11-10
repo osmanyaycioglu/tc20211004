@@ -10,6 +10,7 @@ public class GeneralErrorHandler implements ExceptionMapper<Exception> {
 
     @Override
     public Response toResponse(final Exception exceptionParam) {
+        exceptionParam.printStackTrace();
         ErrorObj errorObjLoc = new ErrorObj().setMessage("Unknown error : " + exceptionParam.getMessage())
                                              .setCause(1500);
 
