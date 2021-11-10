@@ -29,5 +29,4 @@ public class PersonProvisionRest {
         return "SUCCESS";
     }
 
-
 }
