@@ -15,6 +15,8 @@ public class PersonMappings {
         personDtoLoc.setSurname(person.getSurname());
         personDtoLoc.setHeight(person.getHeight());
         personDtoLoc.setWeight(person.getWeight());
+        personDtoLoc.setAddress(person.getAddress());
+        personDtoLoc.setPhones(person.getPhones());
         return personDtoLoc;
     }
 
@@ -25,6 +27,8 @@ public class PersonMappings {
         personDtoLoc.setSurname(person.getSurname());
         personDtoLoc.setHeight(person.getHeight());
         personDtoLoc.setWeight(person.getWeight());
+        personDtoLoc.setAddress(person.getAddress());
+        personDtoLoc.setPhones(person.getPhones());
         return personDtoLoc;
     }
 

@@ -7,14 +7,14 @@ import javax.ejb.LocalBean;
 import javax.ejb.Singleton;
 
 import com.training.javaee.models.PersonDto;
-import com.training.javaee.person.data.PersonDataStorage;
+import com.training.javaee.person.data.PersonDao;
 
 @Singleton
 @LocalBean
 public class PersonQueryService {
 
     @EJB
-    private PersonDataStorage personDataStorage;
+    private PersonDao personDataStorage;
 
     public PersonDto getOne(final String usernameParam) {
         return this.personDataStorage.getOne(usernameParam);

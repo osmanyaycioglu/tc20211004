@@ -6,14 +6,14 @@ import javax.ejb.Singleton;
 import javax.validation.Valid;
 
 import com.training.javaee.models.PersonDto;
-import com.training.javaee.person.data.PersonDataStorage;
+import com.training.javaee.person.data.PersonDao;
 
 @Singleton
 @LocalBean
 public class PersonProvisionService {
 
     @EJB
-    private PersonDataStorage pds;
+    private PersonDao pds;
 
     public void add(@Valid final PersonDto personParam) {
         this.pds.add(personParam);
