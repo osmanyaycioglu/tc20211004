@@ -1,11 +1,15 @@
 package com.training.rest.client;
 
+import java.net.URI;
 import java.util.List;
 
+import org.glassfish.tyrus.client.ClientManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
+
+import jakarta.websocket.Session;
 
 @Component
 public class StartUpObj implements CommandLineRunner {
@@ -18,6 +22,26 @@ public class StartUpObj implements CommandLineRunner {
 
     @Override
     public void run(final String... argsParam) throws Exception {
+        try {
+            ClientManager clientManagerLoc = new ClientManager();
+            URI uri = new URI("ws://127.0.0.1:8080/tcee/websocket/tryout");
+            try (Session connectToServerLoc = clientManagerLoc.connectToServer(WebServerClient.class,
+                                                                               uri)) {
+                for (int iLoc = 0; iLoc < 10; iLoc++) {
+                    connectToServerLoc.getBasicRemote()
+                                      .sendText("Hello from client " + iLoc);
+                }
+                Thread.sleep(10_000);
+            } catch (Exception eLoc) {
+                eLoc.printStackTrace();
+            }
+        } catch (Exception eLoc) {
+            eLoc.printStackTrace();
+        }
+
+    }
+
+    public void run3(final String... argsParam) throws Exception {
         Person personLoc = new Person();
         personLoc.setUsername("osmany");
         personLoc.setName("osman");
